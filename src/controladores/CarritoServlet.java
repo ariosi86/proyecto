@@ -27,8 +27,8 @@ private static final long serialVersionUID = 1L;
 private Carrito shop = new Carrito();
 
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    /*String nombre = request.getParameter("producto");
     ServletContext thisContext = getServletContext(); 
-    String nombre = request.getParameter("producto");
     Connection cn = ConexionBD.getInstance();
     try {
         Statement st = cn.createStatement();
@@ -45,8 +45,13 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
         }
     } catch (SQLException e) {
         e.printStackTrace();
-    }
-
+    }*/
+    String nombre = request.getParameter("producto");
+    Connection cn = ConexionBD.getInstance();
+	ProductosDAO productosDAO= new ProductosDAO();
+	Shop shop= productosDAO.obtenerProductoPorNombre(String nombre);
+	request.setAttribute("shop", shop.getIt());
+	response.sendRedirect("inicio.jsp?addedto=success");
 }
 
 
