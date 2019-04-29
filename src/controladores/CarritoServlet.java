@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.Carrito;
 import modelo.Productos;
 import bd.ConexionBD;
-
+import java.util.List;
 
 /**
  * Servlet implementation class CarritoServlet
@@ -27,7 +27,6 @@ private static final long serialVersionUID = 1L;
 
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nombre = request.getParameter("producto");
-    Connection cn = ConexionBD.getInstance();
 	ProductosDAO productosDAO= new ProductosDAO();
 	List<Productos> shop= productosDAO.obtenerProductoPorNombre(nombre);
 	request.setAttribute("shop", shop);
