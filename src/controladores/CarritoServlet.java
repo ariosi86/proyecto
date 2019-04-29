@@ -30,7 +30,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	ProductosDAO productosDAO= new ProductosDAO();
 	List<Productos> shop= productosDAO.obtenerProductoPorNombre(nombre);
 	request.setAttribute("shop", shop);
-	response.sendRedirect("inicio.jsp?addedto=success");
+	//response.sendRedirect("inicio.jsp?addedto=success");
+	request.getRequestDispatcher("WEB-INF/jsp/inicio.jsp?addedto=success").forward(request, response);
 
 }
 
