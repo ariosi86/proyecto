@@ -87,8 +87,8 @@ public List<Productos> obtenerProductoPorNombre(String nombre){
 	List<Productos> shop = new ArrayList<Productos>();
 	if(conn!=null) {
 	try {
-        Statement st = cn.createStatement();
-        ResultSet rs = st.executeQuery("select * from productos where nombre = '"+nombre+"' LIMIT 1");
+        PreparedStatement st= conn.prepareStatement("select * from productos where nombre = '"+nombre+"' LIMIT 1");
+        ResultSet rs = st.executeQuery();
         while(rs.next()){
             Productos p = new Productos(rs.getString(2),rs.getString(3),rs.getString(4),rs.getFloat(5));
             System.out.println(p.getNombre()+":"+ p.getPrecio());
