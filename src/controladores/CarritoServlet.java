@@ -24,28 +24,14 @@ import bd.ConexionBD;
 @WebServlet("/CarritoServlet")
 public class CarritoServlet extends HttpServlet {
 private static final long serialVersionUID = 1L;
-private Carrito shop = new Carrito();
 
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    ServletContext thisContext = getServletContext(); 
-    String nombre = request.getParameter("producto");
+        String nombre = request.getParameter("producto");
     Connection cn = ConexionBD.getInstance();
-    try {
-        Statement st = cn.createStatement();
-        ResultSet rs = st.executeQuery("select * from productos where nombre = '"+nombre+"' LIMIT 1");
-        while(rs.next()){
-            Productos p = new Productos(rs.getString(2),rs.getString(3),rs.getString(4),rs.getFloat(5));
-            System.out.println(p.getNombre()+":"+ p.getPrecio());
-            shop.ins(p);
-            thisContext.setAttribute("shop", shop.getIt());
-            for(int i = 0; i< shop.getIt().size(); i++){
-                System.out.println(shop.getIt().get(i)+":"+ shop.getIt().get(i).getPrecio());
-            }
-            response.sendRedirect("inicio.jsp?addedto=success");
-        }
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
+	ProductosDAO productosDAO= new ProductosDAO();
+	Shop shop= productosDAO.obtenerProductoPorNombre(String nombre);
+	request.setAttribute("shop", shop.getIt());
+	response.sendRedirect("inicio.jsp?addedto=success");
 
 }
 
