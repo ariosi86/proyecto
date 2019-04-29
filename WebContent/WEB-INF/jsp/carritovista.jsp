@@ -11,7 +11,7 @@
 </head>
 <body>
 <label>${mensaje}</label>
-<c:foreach items="shop" var="carrito" >
+<c:forEach items="shop" var="carrito" >
 	<div>
 		<span>${carrito.nombre}</span><br />
 		<span>${carrito.descripcion}</span><br />
@@ -19,7 +19,7 @@
 		
 	</div>
 
-</c:foreach>
+</c:forEach>
 
 </body>
 </html>
