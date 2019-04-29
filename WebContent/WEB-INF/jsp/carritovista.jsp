@@ -11,7 +11,7 @@
 </head>
 <body>
 <label>${mensaje}</label>
-<c:foresch items="productos" var="carrito" />
+<c:foresch items="shop" var="carrito" />
 	<div>
 		<span>${carrito.nombre}</span><br />
 		<span>${carrito.descripcion}</span><br />
