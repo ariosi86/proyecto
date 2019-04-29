@@ -83,7 +83,9 @@ public Producto obtenerProductoPorId(Integer idProducto) {
 }
 
 public List<Productos> obtenerProductoPorNombre(String nombre){
+	Connection conn=conexion.crearConexion();
 	List<Productos> shop = new ArrayList<Productos>();
+	if(conn!=null) {
 	try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery("select * from productos where nombre = '"+nombre+"' LIMIT 1");
@@ -95,6 +97,7 @@ public List<Productos> obtenerProductoPorNombre(String nombre){
     } catch (SQLException e) {
         e.printStackTrace();
     }
+	}
 	return shop;
 }
 
