@@ -29,8 +29,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
         String nombre = request.getParameter("producto");
     Connection cn = ConexionBD.getInstance();
 	ProductosDAO productosDAO= new ProductosDAO();
-	Shop shop= productosDAO.obtenerProductoPorNombre(nombre);
-	request.setAttribute("shop", shop.getIt());
+	List<Productos> shop= productosDAO.obtenerProductoPorNombre(nombre);
+	request.setAttribute("shop", shop);
 	response.sendRedirect("inicio.jsp?addedto=success");
 
 }
