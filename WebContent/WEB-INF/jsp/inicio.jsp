@@ -17,15 +17,15 @@
 		<span>${producto.nombre}</span>
 		<span><a href="DescripcionServlet?idProducto=${producto.idProducto}">Ver descripciòn</a></span>
 		
-		    <form action="/CarritoServlet">
+		  
 		<table >
 			<tr>
-				<td> <input class="sub"  type="submit" value="AddToCart" name=""></td>
-						<span><a href="CarritoServlet?idProducto=${producto.idProducto}">agregar </a></span>
+				
+			<span><a href="CarritoServlet?idProducto=${producto.idProducto}">agregar </a></span>
 		   </tr>
 	   </table>
 	   
-      </form>
+     
  
 		
 	</div>
