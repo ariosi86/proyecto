@@ -21,27 +21,23 @@ private ConexionBD conexion;
 	}
 	
 	
-	public List<Carrito> agregarCarrito(String nombre ,String descripcion, float precio) {
+	public List<Carrito> consultarCarrito(int idUsuario,String nombre ,String descripcion, float precio) {
 		
 		Connection conn=conexion.crearConexion();
 		if(conn!=null) {
 			try
 			{
-				PreparedStatement st= conn.prepareStatement("select nombre,descripcion,precio from productos where idProducto=?");
-				st.setString(1, nombre);
-				st.setString(2, descripcion);
-				st.setFloat(3, precio);
+				PreparedStatement st= conn.prepareStatement("select p.nombre,c.precio,c.cantidad from productos p join carrito c on(c.idProducto=p.idProducto) where c.idUsuario=?");
+				st.setInt(1,idUsuario);
 				ResultSet rs=st.executeQuery();
-				List<Carrito> usuarios= new ArrayList<Carrito>();
-				List<Carrito> carritos;
+				List<Carrito> carritos= new ArrayList<Carrito>();
 				while(rs.next())
 				{
 					Carrito carrito= new Carrito();
 					carrito.setNombre(rs.getString("nombre"));
-				    carrito.setDescripcion(rs.getString("descripcion"));
+				   	carrito.setCantidad(rs.getInt("cantidad"))
 					carrito.setPrecio(rs.getFloat("precio"));
-					Carrito carrito1;
-					carritos.add(carrito1);
+					carritos.add(carrito);
 				}
 				return carritos;
 			}
