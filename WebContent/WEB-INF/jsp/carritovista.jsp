@@ -13,13 +13,13 @@
 <label>${mensaje}</label>
 <c:forEach items="${shop}" var="carrito" >
 	<div>
-		<span>${carrito.nombre}</span><br />
-		<span>${carrito.descripcion}</span><br />
-		<span>${carrito.precio}</span>
+		Nombre: <span>${carrito.nombre}</span><br />
+		Cantidad seleccionada: <span>${carrito.cantidad}</span><br />
+		Precio total: <span>${carrito.precio}</span>
 		
 	</div>
 
 </c:forEach>
-
+	<a href="InicioServlet">Volver al Inicio</a>
 </body>
 </html>
