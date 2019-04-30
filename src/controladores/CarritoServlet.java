@@ -36,7 +36,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	Usuario usuario=(Usuario) request.getSession().getAttribute("usuario");
 	
 	carritoDAO.agregarCarritoUsuario( usuario.getIdUsuario() ,seleccionado.getId(), cantidad,seleccionado.getPrecio()*cantidad);
-	
+	List<Carrito> shop=carritoDAO.consultarCarrito(usuario.getIdUsuario());
 	
 	
 	request.setAttribute("shop", shop);
