@@ -2,6 +2,9 @@ package modelo;
 
 public class Usuario {
 
+	private int idUsuario;
+	
+	
 	private String usuario;
 	
 	private String nombre;
@@ -10,6 +13,15 @@ public class Usuario {
 	
 	private int privilegio;
 
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+	
 	public String getUsuario() {
 		return usuario;
 	}
