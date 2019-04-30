@@ -13,8 +13,7 @@
 <label>${mensaje}</label>
 <c:forEach items="${productos}" var="producto">
 	<div>
-		<span>${producto.idProducto}</span>
-		<span>${producto.nombre}</span>
+		Nombre del producto: <span>${producto.nombre}</span>
 		<span><a href="DescripcionServlet?idProducto=${producto.idProducto}">Ver descripciòn</a></span>
 		
 		<form action="CarritoServlet">  
@@ -22,7 +21,7 @@
 			<label>cantidad: </label><input type="text" name="cantidad" value="1" />
 		<table >
 			<tr>
-			<span><input type="submit" value="agregar" /></span>
+			<span><input type="submit" value="agregar al carrito" /></span>
 		   </tr>
 	   </table>
 	   	</form>
