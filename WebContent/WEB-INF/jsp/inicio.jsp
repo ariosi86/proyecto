@@ -17,14 +17,15 @@
 		<span>${producto.nombre}</span>
 		<span><a href="DescripcionServlet?idProducto=${producto.idProducto}">Ver descripciòn</a></span>
 		
-		  
+		<form action="CarritoServlet">  
+		    <input type="hidden" name="idProducto" value="${producto.idProducto}" />	
+			<label>cantidad: </label><input type="text" name="cantidad" value="1" />
 		<table >
 			<tr>
-				
-			<span><a href="CarritoServlet?idProducto=${producto.idProducto}">agregar </a></span>
+			<span><input type="submit" value="agregar" /></span>
 		   </tr>
 	   </table>
-	   
+	   	</form>
      
  
 		
