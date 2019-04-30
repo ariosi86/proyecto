@@ -21,7 +21,7 @@ private ConexionBD conexion;
 	}
 	
 	
-	public List<Carrito> consultarCarrito(int idUsuario,String nombre ,String descripcion, float precio) {
+	public List<Carrito> consultarCarrito(int idUsuario) {
 		
 		Connection conn=conexion.crearConexion();
 		if(conn!=null) {
