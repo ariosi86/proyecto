@@ -56,6 +56,32 @@ private ConexionBD conexion;
 		
 	}
 	
+	public void agregarCarritoUsuario(int idUsuario,int idProducto,int cantidad, float precio)
+	{
+		Connection conn=conexion.crearConexion();
+		if(conn!=null) {
+			try
+			{
+				PreparedStatement st= conn.prepareStatement("insert into carrito(idUsuario,idProducto,cantidad,precio) values(?,?,?,?)");
+				st.setInt(1, idUsuario);
+				st.setInt(2, idProducto);
+				st.setInt(3, cantidad);
+				st.setFloat(4, precio);
+				st.execute();
+				
+				
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+				return ;
+			}
+			
+			
+		}
+		return ;
+		
+	}
+	
 }
 
 	
